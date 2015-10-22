@@ -1,0 +1,30 @@
+<div ng-controller="HomeController as vm">
+	<br>
+
+<h1 style="text-align:center;">It's Movie Time ! ! !</h1>
+<div style="text-align:left;" ng-repeat="post in vm.posts">
+
+ <h3><a ui-sref="PostDetails({id:post._id})"><i>Movie: {{post.name}}</i></a></h3>
+ <h3><i>Year: {{post.year}}</i></h3>
+ <h3><i>Genre: {{post.genre}}</i></h3>
+
+<button type="button" class="btn btn-warning" ui-sref='EditPost'>Edit</button>
+<button type="button" class="btn btn-danger" ng-click='vm.deletePost(post)'>Delete</button>
+
+</div>
+ <form ng-show="showEdit" class="well container" ng-submit="vm.editPost(post._id); showEdit = false;">
+
+
+   <label>Name</label><br>
+   <input class="form-control" ng-model="vm.edittedPost.name" placeholder="{{post.name}}"><br>
+   <label>Year</label><br>
+   <input class="form-control" ng-model="vm.edittedPost.year" placeholder="{{post.year}}"><br>
+   <label>Genre</label><br>
+   <input class="form-control" ng-model="vm.edittedPost.genre" placeholder="{{post.genre}}"><br>
+
+<div>
+  <button type="button" class="btn btn-info" ng-click="showEdit = false;">Submit</button>
+   <button type="submit" class="btn btn-success">Submit</button>
+</div>
+</form>
+</div>

@@ -1,0 +1,16 @@
+<div ng-controller="EditController as vm">
+  <h1>This is Edit Page</h1>
+
+  <form class="well container" ng-submit="vm.editPost()">
+		<label>Name</label><br>
+		<input class="form-control" ng-model="vm.post.name" placeholder="{{t.name}}"><br>
+		<label>Year</label><br>
+		<input class="form-control" ng-model="vm.post.year" placeholder="{{t.year}}"><br>
+		<label>Genre</label><br>
+		<input class="form-control" ng-model="vm.post.genre" placeholder="{{t.genre}}"><br>
+		<button type="button" class="btn btn-success" ng-click="vm.editPost()">Edit to Movie List</button>
+    <button type="button" class="btn btn-info" ui-sref="MovieList">Back to MovieList</button>
+
+	</form>
+
+</div>

@@ -1,0 +1,34 @@
+<div ng-controller="PostDetailsController as vm">
+<h1>This is Post Details Page!</h1>
+<hr>
+<h1>Movie: {{vm.movie.name}}</h1>
+<h1>Year: {{vm.movie.year}}</h1>
+<h1>Genre: {{vm.movie.genre}}</h1>
+
+<div class="row">
+  <ul>
+    <li ng-repeat="c in vm.movie.comments">{{c.body}} - {{c.user}}</li>
+  </ul>
+</div>
+
+
+
+<div style="text-align:center;" class="well container; form-inline" ng-show="addingComment">
+  <input class="form-control" ng-model="vm.comment.body" placeholder="put your comments here...">
+  <label>Rating: </label>
+  <select class="form-control" ng-model="vm.comment.rating">
+    <option value='5'>5</option>
+    <option value='4'>4</option>
+    <option value='3'>3</option>
+    <option value='2'>2</option>
+    <option value='1'>1</option>
+  </select>
+  <button type="button" class="btn btn-primary" ng-click="addingComment = false; vm.addComment()">Submit</button>
+  <button type="button" class="btn btn-danger" ng-click="addingComment = false">Cancel</button>
+</div>
+
+<div style="text-align:center;" class="well container" ng-show="!addingComment && nav.status.username">
+  <button type="button" class='btn btn-info' ng-click="addingComment=true;">Add Comment</button>
+</div>
+<hr>
+</div>

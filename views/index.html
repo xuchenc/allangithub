@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>My App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap_theme.css">
+	<link rel="stylesheet" type="text/css" href="/css/site.css">
+</head>
+<body>
+	<div ng-controller="GlobalController as nav">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" ui-sref="Home">Home</a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a ui-sref="MovieList">Movie List <span class="sr-only">(current)</span></a></li>
+						<li><a href="https://www.amctheatres.com/">Watch at AMC !</a></li>
+					</ul>
+					<!-- Show this if the user is not logged in -->
+					<ul class="nav navbar-nav navbar-right" ng-show="!nav.status.username">
+						<li><a ui-sref="Login_Register">Login</a></li>
+					</ul>
+					<!-- Show this if the user IS logged in -->
+					<ul class="nav navbar-nav navbar-right" ng-show="nav.status.username">
+						<li><a>Welcome {{nav.status.username}}</a></li>
+						<li><a ng-click="nav.logout()">Logout</a>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	<button ui-sref="Login_Register" type="button" class="btn btn-warning" ng-show="!nav.status.username">Login</button>
+	<button ng-click="nav.logout()" type="button" class="btn btn-danger" ng-show="nav.status.username">Logout</button>
+	<button type="button" class="btn btn-info" ui-sref="CreatePost">Create your Movie</button>
+	<br>
+
+	<iframe width="420" height='315' src="https://www.youtube.com/embed/wCc2v7izk8w?autoplay=true"></iframe>
+
+		<ui-view></ui-view>
+	</div>
+
+	<!-- Ext Libs -->
+	<script src="angular/angular.min.js"></script>
+	<script src="angular-ui-router/release/angular-ui-router.min.js"></script>
+	<!-- Global Src -->
+	<script src="/javascript/app.js"></script>
+	<!-- Factories -->
+	<script src="/javascript/services/HomeFactory.js"></script>
+	<script src="/javascript/services/UserFactory.js"></script>
+	<script src="/javascript/services/AuthInterceptor.js"></script>
+
+	<!-- Controllers -->
+	<script src="/javascript/controllers/HomeController.js"></script>
+	<script src="/javascript/controllers/GlobalController.js"></script>
+	<script src="/javascript/controllers/CreateController.js"></script>
+	<script src="/javascript/controllers/EditController.js"></script>
+	<script src="/javascript/controllers/PostDetailsController.js"></script>
+
+
+
+</body>
+</html>

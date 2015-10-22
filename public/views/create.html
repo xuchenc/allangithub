@@ -1,0 +1,13 @@
+<div ng-controller="CreateController as vm">
+  <form class="well container" ng-submit="vm.createPost()">
+		<label>Name</label><br>
+		<input class="form-control" ng-model="vm.post.name" placeholder="Moive Name..."><br>
+		<label>Year</label><br>
+		<input class="form-control" ng-model="vm.post.year" placeholder="Moive Year..."><br>
+		<label>Genre</label><br>
+		<input class="form-control" ng-model="vm.post.genre" placeholder="Moive Genre..."><br>
+		<button type="button" class="btn btn-success" ng-click="vm.createPost()">Add to Movie List</button>
+    <button type="button" class="btn btn-info" ui-sref="Home">Back to Home</button>
+
+	</form>
+</div>

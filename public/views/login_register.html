@@ -1,0 +1,33 @@
+<!-- show the login form-->
+<div ng-show='nav.isLogin'>
+  <form class="well container" ng-submit="nav.login()">
+    <md-input-container>
+      <label>Username</label>
+      <input class="form-control" placeholder="Username..." ng-model="nav.user.username">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder="Password..." ng-model="nav.user.password">
+      <div style="text-align:center">
+        <button type="button" ng-click="nav.isLogin = false;" class="btn btn-warning">Register</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </md-input-container>
+  </form>
+</div>
+
+
+<!--show the Register Form-->
+<div ng-show='!nav.isLogin'>
+  <form class="well container" ng-submit="nav.register()">
+      <label>Username</label>
+      <input class="form-control" placeholder="Username..." ng-model="nav.user.username">
+      <label>Email</label>
+      <input type="email" class="form-control" placeholder="Email..." ng-model="nav.user.email">
+      <label>Password</label>
+      <input type="password" class="form-control" placeholder="Password..." ng-model="nav.user.password">
+      <div style="text-align:center">
+        <button type="button" ng-click="nav.isLogin = true;" class="btn btn-warning">Login</button>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
