@@ -5,7 +5,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8888;
 var passport = require('passport');
 var mongoose = require('mongoose');
 require('./models/User');
@@ -22,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('.html', require('ejs').renderFile);
 //Allow for these directories to be usable on the client side
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/dist'));
 app.use(express.static(__dirname + '/bower_components'));
 //we want to render html files
 app.set('view engine', 'html');

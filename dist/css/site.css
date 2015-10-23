@@ -1,0 +1,10 @@
+div {
+  height: 50%;
+}
+div a {
+  text-decoration: none;
+  color: blue;
+}
+div a img.img-responsive {
+  width: 30px;
+}
