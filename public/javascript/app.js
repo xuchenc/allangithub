@@ -2,11 +2,11 @@
 	'use strict';
 	angular.module('app', ['ui.router'])
 	.config(Config);
-	
+
 	function Config($stateProvider, $urlRouterProvider,$httpProvider) {
 		$stateProvider.state('Home',{
 			url: '/',
-			templateUrl: 'views/home.html'
+			templateUrl: 'views/Home.html'
 		}).state('Login_Register',{
 			url:'/login-register',
 			templateUrl:'views/login_register.html'
