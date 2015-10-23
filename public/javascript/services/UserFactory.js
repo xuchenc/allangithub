@@ -10,6 +10,7 @@
     o.register = function(user){
       var q = $q.defer();
       $http.post('/api/users/register',user).then(function(res){
+				console.log(res.data);
         setToken(res.data);
         setUser();
         q.resolve(res.data);

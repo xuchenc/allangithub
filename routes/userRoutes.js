@@ -10,7 +10,7 @@ router.post('/register', function(req, res, next) {
   user.save(function(err, result) {
     if(err) return next(err);
     if(!result) return next("There was an issue registering that user.");
-    res.send(result);
+    res.send(user.createToken());
   });
 });
 
